@@ -15,5 +15,7 @@ namespace Library
         {
             name = room_name;
         }
+
+        public string Name { get { return name; } set { name = value; } }
     }
 }

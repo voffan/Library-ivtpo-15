@@ -9,15 +9,15 @@ namespace Library
     public class City
     {
         private string name;
-        private string country;
+        private Country country;
 
         public City() { }
-        public City(string city_name, string city_country)
-            {
-            name = city_name; 
-            country = city_country
-
-            }
-
+        public City(string city_name, Country city_country)
+        {
+            name = city_name;
+            country = city_country;
+        }
+        public string Name { get { return name; } set { name = value; } }
+        public Country Country { get { return country; } set { country = value; } }
     }
 }

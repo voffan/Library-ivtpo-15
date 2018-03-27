@@ -12,7 +12,8 @@ namespace Library
         public BookStatus() { }
         public BookStatus(string status_name)
         {
-
+            name = status_name;
         }
+        public string Name { get { return name; } }
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class book
+    class Book
     {
+        private string name;
+
+        public Book() { }
     }
 }

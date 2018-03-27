@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class country
+    class Country
     {
+        private string name;
+        public Country() { }
+        public Country(string country_name) 
+        {
+            name = country_name;
+        }
+        public string Name { get { return name; } set { name = value; } }
     }
 }

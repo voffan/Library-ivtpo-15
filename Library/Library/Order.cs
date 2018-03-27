@@ -14,8 +14,12 @@ namespace Library
         public Order () { }
         public Order (DateTime orderdate, DateTime returndate, Boolean status)
         {
-
+            this.orderdate = orderdate;
+            this.returndate = returndate;
+            this.status = status;
         }
-
+        public DateTime OrderDate { get { return orderdate; } set { orderdate = value; } }
+        public DateTime ReturnDate { get { return returndate; } set { returndate = value; } }
+        public Boolean IsReturned { get { return status; } set { status = value; } }
     }
 }

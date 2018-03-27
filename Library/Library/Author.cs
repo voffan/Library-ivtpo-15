@@ -11,7 +11,7 @@ namespace Library
         private DateTime death_date;
         private Country country;
         public Author() { }
-        publick (DateTime death_date, Country country)
+        public Author(DateTime death_date, Country country)
         { }
 
     }
