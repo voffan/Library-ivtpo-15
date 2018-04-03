@@ -4,3 +4,4 @@ obj
 /TechDoc/*.rqb
 /TechDoc/*.sws
 /Library/.vs
+/Library/*.suo
