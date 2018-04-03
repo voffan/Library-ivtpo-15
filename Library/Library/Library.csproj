@@ -55,6 +55,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lending.cs" />
     <Compile Include="library.cs" />
     <Compile Include="ms.cs" />
     <Compile Include="Order.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Publisher.cs" />
     <Compile Include="Reader.cs" />
     <Compile Include="ReadingRoom.cs" />
+    <Compile Include="User.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
