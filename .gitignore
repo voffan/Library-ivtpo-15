@@ -1,7 +1,5 @@
 bin
 obj
-.vs
-*.suo
 /TechDoc/*.oob
 /TechDoc/*.rqb
 /TechDoc/*.sws
