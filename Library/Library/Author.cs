@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library
 {
@@ -14,6 +16,8 @@ namespace Library
         public int AuthorID { get; set; }
         public int CountryID { get; set; }
         public Country Country { get { return country; } set { country = value; } }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-mm-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? Death_date { get { return death_date; } set { death_date = value; } }
 
         public Author():base() { }

@@ -11,17 +11,12 @@ namespace Library
         public class Lending
         {
             private string name;
-            private library lib;
             public Lending() { }
-            public Lending(string status_name, library lib)
+            public Lending(string name)
             {
-                name = status_name;
-                this.lib = lib;
+                this.name = name;
             }
             public int LendingID { get; set; }
-            public int LibraryID { get; set; }
             public string Name { get { return name; } set { name = value; } }
-            [ForeignKey("LibraryID")]
-            public library library { get { return lib; } }
         }
 }

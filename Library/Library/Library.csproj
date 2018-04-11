@@ -66,6 +66,7 @@
     <Compile Include="Genre.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Lending.cs" />
+    <Compile Include="Librarian.cs" />
     <Compile Include="library.cs" />
     <Compile Include="ms.cs" />
     <Compile Include="Order.cs" />
