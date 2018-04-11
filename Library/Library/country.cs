@@ -14,6 +14,7 @@ namespace Library
         {
             name = country_name;
         }
+        public int CountryID { get; set; }
         public string Name { get { return name; } set { name = value; } }
     }
 }

@@ -14,6 +14,7 @@ namespace Library
         {
             name = status_name;
         }
-        public string Name { get { return name; } }
+        public int BookStatusID { get; set; }
+        public string Name { get { return name; } set { name = value; } }
     }
 }

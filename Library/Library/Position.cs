@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class Position
+    public class Position
     {
         private string name;
 
@@ -16,5 +16,6 @@ namespace Library
             name = position_name;
         }
         public string Name { get { return name; } set { name = value; } }
+        public int PositionID { get; set; }
     }
 }

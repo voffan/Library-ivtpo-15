@@ -15,7 +15,7 @@ namespace Library
         {
             name = room_name;
         }
-
+        public int ReadingRoomID { get; set; }
         public string Name { get { return name; } set { name = value; } }
     }
 }

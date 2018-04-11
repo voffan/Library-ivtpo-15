@@ -63,10 +63,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Genre.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Lending.cs" />
     <Compile Include="library.cs" />
     <Compile Include="ms.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="Orderbooks.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,6 +17,7 @@ namespace Library
             this.address = address;
             this.phone = phone;
         }
+        public int LibraryID { get; set; }
         public string Name { get { return name; } set { name = value; } }
         public string Address { get { return address; } set { address = value; } }
         public string Phone { get { return phone; } set { phone = value; } }

@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class Book
+    public class Book
     {
         private string name;
 
+        public string Name { get { return name; } set { name = value; } }
+        public int BookID { get; set; }
+
         public Book() { }
+        public Book(string name)
+        {
+            this.name = name;
+        }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library
 {
@@ -16,7 +18,10 @@ namespace Library
                 name = status_name;
                 this.lib = lib;
             }
+            public int LendingID { get; set; }
+            public int LibraryID { get; set; }
             public string Name { get { return name; } set { name = value; } }
-            public library LIBRARY { get { return lib; } }
+            [ForeignKey("LibraryID")]
+            public library library { get { return lib; } }
         }
 }

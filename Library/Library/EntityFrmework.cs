@@ -4,21 +4,23 @@ namespace Library
 {
     public class LibraryContext : DbContext
     {
-        public DbSet<Book> Book { get; set; }
-        public DbSet<Author> Author { get; set; }
-        public DbSet<BookStatus> BookStatuss { get; set; }
-        public DbSet<City> city { get; set; }
-        public DbSet<Country> country { get; set; }
-        public DbSet<Lending> Lending { get; set; }
-        public DbSet<library> library { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<BookStatus> BookStatuses { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Lending> Lendings { get; set; }
+        public DbSet<library> Libraries { get; set; }
         public DbSet<Person> Persons { get; set; }
 
-        public DbSet<Order> Order { get; set; }
-        public DbSet<Position> Position { get; set; }
-        public DbSet<Publisher> Publisher { get; set; }
-        public DbSet<Reader> Reader { get; set; }
-        public DbSet<ReadingRoom> ReadengRoom { get; set; }
-        public DbSet<User> User { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderBooks> OrderBooks { get; set; }
+        public DbSet<Position> Positions { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Reader> Readers { get; set; }
+        public DbSet<ReadingRoom> ReadingRooms { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Genre> Genres { get; set; }
 
     }
 }

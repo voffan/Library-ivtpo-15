@@ -18,8 +18,14 @@ namespace Library
             this.returndate = returndate;
             this.status = status;
         }
+        public int OrderID { get; set; }
         public DateTime OrderDate { get { return orderdate; } set { orderdate = value; } }
         public DateTime ReturnDate { get { return returndate; } set { returndate = value; } }
         public Boolean IsReturned { get { return status; } set { status = value; } }
+
+        public int BookID { get; set; }
+        public Book Book { get; set; }
+        public int ReaderID { get; set; }
+        public Reader Reader { get; set; }
     }
 }

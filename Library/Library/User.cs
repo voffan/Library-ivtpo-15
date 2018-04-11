@@ -7,7 +7,7 @@ using System.Data.Entity;
 
 namespace Library
 {
-    class User {
+    public class User {
         private string name;
         private string pwd;
         public User() { }
@@ -16,6 +16,7 @@ namespace Library
             name = user_name;
             pwd = user_pwd;
         }
+        public int UserID { get; set; }
         public string Login { get { return name; } }
         public string Password { get { return pwd; } }
     }
@@ -33,27 +34,27 @@ namespace Library
 
         public IEnumerable<User> GetObjects() 
         {
-            return context.User.ToList();
+            return context.Users.ToList();
         }
-        User GetObjectByID(int entityId) 
+        public User GetObjectByID(int entityId) 
         {
-            return context.User.Find(entityId);
+            return context.Users.Find(entityId);
         }
-        void InsertObject(User entity) 
+        public void InsertObject(User entity) 
         {
-            context.User.Add(entity);
+            context.Users.Add(entity);
         }
-        void DeleteObject(int entityId) 
+        public void DeleteObject(int entityId) 
         {
-            User u = context.User.Find(entityId);
-            context.User.Remove(u);
+            User u = context.Users.Find(entityId);
+            context.Users.Remove(u);
         }
-        void UpdateObject(User entity) 
+        public void UpdateObject(User entity) 
         {
             context.Entry(entity).State = EntityState.Modified;
         }
 
-        void Save() 
+        public void Save() 
         {
             context.SaveChanges();
         }

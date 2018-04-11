@@ -26,6 +26,7 @@ namespace Library
         {
             fullname = fname + " " + sname + " " + mname;
         }
+        public int PersonID { get; set; }
         public string FirstName { get { return fname; } set { fname = value; SetFullName(); } }
         public string LastName { get { return sname; } set { sname = value; SetFullName(); } }
         public string MiddleName { get { return mname; } set { mname = value; SetFullName(); } }

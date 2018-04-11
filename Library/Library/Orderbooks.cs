@@ -6,21 +6,26 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class Orderbooks
+    public class OrderBooks
     {
-        private Book;
-        private int;
-        private BookStatus status;
-        public Orderbooks() { }
-        public Orderbooks(Book book, int count, BookStatus status)
+        private Order order;
+        private Book book;
+        private int count;
+        private BookStatus bookStatus;
+        public OrderBooks() { }
+        public OrderBooks(Book book, int count, BookStatus status)
         {
             this.book = book;
             this.count = count;
-            this.status = status;
+            this.bookStatus = status;
         }
-        public book  { get { return Book; } set { orderdate = value; } }
-        public count { get { return int; } set { returndate = value; } }
-        public status { get { return BookStatus; } set { status = value; } }
+        public int OrderBookID { get; set; }
+        public int OrderID { get; set; }
+        public Order Order { get{ return order; } set{ order =value; } }
+        public int BookID { get; set; }
+        public Book Book { get { return book; } set { book = value; } }
+        public int Count { get { return count; } set { count = value; } }
+        public int BookStatusID { get; set; }
+        public BookStatus BookStatus { get { return bookStatus; } set { bookStatus = value; } }
     }
-}
 }
