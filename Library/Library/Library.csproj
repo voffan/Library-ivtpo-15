@@ -38,9 +38,16 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.2.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +75,11 @@
     <Compile Include="Lending.cs" />
     <Compile Include="Librarian.cs" />
     <Compile Include="library.cs" />
+    <Compile Include="Migrations\201804110936084_Initial-Migration.cs" />
+    <Compile Include="Migrations\201804110936084_Initial-Migration.Designer.cs">
+      <DependentUpon>201804110936084_Initial-Migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ms.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Orderbooks.cs" />
@@ -78,6 +90,9 @@
     <Compile Include="Reader.cs" />
     <Compile Include="ReadingRoom.cs" />
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="Migrations\201804110936084_Initial-Migration.resx">
+      <DependentUpon>201804110936084_Initial-Migration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

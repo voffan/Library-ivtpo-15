@@ -19,7 +19,7 @@ namespace Library
             this.count = count;
             this.bookStatus = status;
         }
-        public int OrderBookID { get; set; }
+        public int OrderBooksID { get; set; }
         public int OrderID { get; set; }
         public Order Order { get{ return order; } set{ order =value; } }
         public int BookID { get; set; }

@@ -16,6 +16,7 @@ namespace Library
         public Order (DateTime orderdate, Boolean status)
         {
             this.orderdate = orderdate;
+            this.returndate = null;
             this.status = status;
         }
         public int OrderID { get; set; }
