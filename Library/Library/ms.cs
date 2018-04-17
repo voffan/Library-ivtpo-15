@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 
 namespace Library
 {
@@ -62,7 +63,7 @@ namespace Library
         public void DeleteObject(int entityId)
         {
            Person u = context.Persons.Find(entityId);
-            context.UPersons.Remove(u);
+            context.Persons.Remove(u);
         }
         public void UpdateObject(Person entity)
         {

@@ -26,7 +26,7 @@ namespace Library
         public Country Country { get { return country; } set { country = value; } }
         public int CountryID { get; set; }
     }
-    public class CityRepository : IRepositoryCity>, IDisposable
+    public class CityRepository : IRepository<City>, IDisposable
     {
         private LibraryContext context;
 
