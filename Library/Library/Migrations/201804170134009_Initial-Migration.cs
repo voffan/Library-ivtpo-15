@@ -43,14 +43,54 @@ namespace Library.Migrations
                     {
                         BookID = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        Year = c.Int(nullable: false),
+                        ISBN = c.String(),
+                        PublisherID = c.Int(nullable: false),
+                        Count = c.Int(nullable: false),
+                        GenreID = c.Int(nullable: false),
+                        AuthorID = c.Int(nullable: false),
                         Author_PersonID = c.Int(),
-                        Genre_GenreID = c.Int(),
                     })
                 .PrimaryKey(t => t.BookID)
                 .ForeignKey("dbo.People", t => t.Author_PersonID)
-                .ForeignKey("dbo.Genres", t => t.Genre_GenreID)
-                .Index(t => t.Author_PersonID)
-                .Index(t => t.Genre_GenreID);
+                .ForeignKey("dbo.Genres", t => t.GenreID, cascadeDelete: true)
+                .ForeignKey("dbo.Publishers", t => t.PublisherID, cascadeDelete: true)
+                .Index(t => t.PublisherID)
+                .Index(t => t.GenreID)
+                .Index(t => t.Author_PersonID);
+            
+            CreateTable(
+                "dbo.Genres",
+                c => new
+                    {
+                        GenreID = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.GenreID);
+            
+            CreateTable(
+                "dbo.Publishers",
+                c => new
+                    {
+                        PublisherID = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        CityID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.PublisherID)
+                .ForeignKey("dbo.Cities", t => t.CityID, cascadeDelete: true)
+                .Index(t => t.CityID);
+            
+            CreateTable(
+                "dbo.Cities",
+                c => new
+                    {
+                        CityID = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        CountryID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.CityID)
+                .ForeignKey("dbo.Countries", t => t.CountryID, cascadeDelete: true)
+                .Index(t => t.CountryID);
             
             CreateTable(
                 "dbo.Countries",
@@ -69,27 +109,6 @@ namespace Library.Migrations
                         Name = c.String(),
                     })
                 .PrimaryKey(t => t.BookStatusID);
-            
-            CreateTable(
-                "dbo.Cities",
-                c => new
-                    {
-                        CityID = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        CountryID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.CityID)
-                .ForeignKey("dbo.Countries", t => t.CountryID, cascadeDelete: true)
-                .Index(t => t.CountryID);
-            
-            CreateTable(
-                "dbo.Genres",
-                c => new
-                    {
-                        GenreID = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                    })
-                .PrimaryKey(t => t.GenreID);
             
             CreateTable(
                 "dbo.Lendings",
@@ -137,18 +156,15 @@ namespace Library.Migrations
                         OrderDate = c.DateTime(nullable: false),
                         ReturnDate = c.DateTime(),
                         IsReturned = c.Boolean(nullable: false),
-                        BookID = c.Int(nullable: false),
                         ReaderID = c.Int(nullable: false),
                         LendingID = c.Int(),
                         ReadingRoomID = c.Int(),
                         Reader_PersonID = c.Int(),
                     })
                 .PrimaryKey(t => t.OrderID)
-                .ForeignKey("dbo.Books", t => t.BookID, cascadeDelete: true)
                 .ForeignKey("dbo.Lendings", t => t.LendingID)
                 .ForeignKey("dbo.People", t => t.Reader_PersonID)
                 .ForeignKey("dbo.ReadingRooms", t => t.ReadingRoomID)
-                .Index(t => t.BookID)
                 .Index(t => t.LendingID)
                 .Index(t => t.ReadingRoomID)
                 .Index(t => t.Reader_PersonID);
@@ -179,51 +195,38 @@ namespace Library.Migrations
                     })
                 .PrimaryKey(t => t.UserID);
             
-            CreateTable(
-                "dbo.Publishers",
-                c => new
-                    {
-                        PublisherID = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        CityID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.PublisherID)
-                .ForeignKey("dbo.Cities", t => t.CityID, cascadeDelete: true)
-                .Index(t => t.CityID);
-            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Publishers", "CityID", "dbo.Cities");
             DropForeignKey("dbo.People", "UserID", "dbo.Users");
             DropForeignKey("dbo.People", "PositionID", "dbo.Positions");
             DropForeignKey("dbo.OrderBooks", "OrderID", "dbo.Orders");
             DropForeignKey("dbo.Orders", "ReadingRoomID", "dbo.ReadingRooms");
             DropForeignKey("dbo.Orders", "Reader_PersonID", "dbo.People");
             DropForeignKey("dbo.Orders", "LendingID", "dbo.Lendings");
-            DropForeignKey("dbo.Orders", "BookID", "dbo.Books");
             DropForeignKey("dbo.OrderBooks", "BookStatusID", "dbo.BookStatus");
             DropForeignKey("dbo.OrderBooks", "BookID", "dbo.Books");
-            DropForeignKey("dbo.Books", "Genre_GenreID", "dbo.Genres");
-            DropForeignKey("dbo.Cities", "CountryID", "dbo.Countries");
             DropForeignKey("dbo.People", "CountryID", "dbo.Countries");
+            DropForeignKey("dbo.Books", "PublisherID", "dbo.Publishers");
+            DropForeignKey("dbo.Publishers", "CityID", "dbo.Cities");
+            DropForeignKey("dbo.Cities", "CountryID", "dbo.Countries");
+            DropForeignKey("dbo.Books", "GenreID", "dbo.Genres");
             DropForeignKey("dbo.Books", "Author_PersonID", "dbo.People");
-            DropIndex("dbo.Publishers", new[] { "CityID" });
             DropIndex("dbo.Orders", new[] { "Reader_PersonID" });
             DropIndex("dbo.Orders", new[] { "ReadingRoomID" });
             DropIndex("dbo.Orders", new[] { "LendingID" });
-            DropIndex("dbo.Orders", new[] { "BookID" });
             DropIndex("dbo.OrderBooks", new[] { "BookStatusID" });
             DropIndex("dbo.OrderBooks", new[] { "BookID" });
             DropIndex("dbo.OrderBooks", new[] { "OrderID" });
             DropIndex("dbo.Cities", new[] { "CountryID" });
-            DropIndex("dbo.Books", new[] { "Genre_GenreID" });
+            DropIndex("dbo.Publishers", new[] { "CityID" });
             DropIndex("dbo.Books", new[] { "Author_PersonID" });
+            DropIndex("dbo.Books", new[] { "GenreID" });
+            DropIndex("dbo.Books", new[] { "PublisherID" });
             DropIndex("dbo.People", new[] { "UserID" });
             DropIndex("dbo.People", new[] { "PositionID" });
             DropIndex("dbo.People", new[] { "CountryID" });
-            DropTable("dbo.Publishers");
             DropTable("dbo.Users");
             DropTable("dbo.Positions");
             DropTable("dbo.ReadingRooms");
@@ -231,10 +234,11 @@ namespace Library.Migrations
             DropTable("dbo.OrderBooks");
             DropTable("dbo.libraries");
             DropTable("dbo.Lendings");
-            DropTable("dbo.Genres");
-            DropTable("dbo.Cities");
             DropTable("dbo.BookStatus");
             DropTable("dbo.Countries");
+            DropTable("dbo.Cities");
+            DropTable("dbo.Publishers");
+            DropTable("dbo.Genres");
             DropTable("dbo.Books");
             DropTable("dbo.People");
         }

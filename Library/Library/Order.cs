@@ -31,8 +31,6 @@ namespace Library
         
         public Boolean IsReturned { get { return status; } set { status = value; } }
 
-        public int BookID { get; set; }
-        public Book Book { get; set; }
         public int ReaderID { get; set; }
         public Reader Reader { get; set; }
         public int? LendingID { get; set; }
