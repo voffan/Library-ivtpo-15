@@ -30,7 +30,7 @@ namespace Library
             }
             catch(Exception exc)
             {
-                MessageBox.Show(exc.Message);
+                MessageBox.Show(exc.ToString());
             }
             repo.Save();
         }
