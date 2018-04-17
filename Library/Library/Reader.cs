@@ -15,9 +15,12 @@ namespace Library
         {
             this.phone = phone;
             this.address = address;
+            this.Orders = new List<Order>();
         }
-        
+        public int ReaderID { get; set; }
         public string Phone { get { return phone; } set { phone = value; } }
         public string Address { get { return address; } set { address = value; } }
+
+        public ICollection<Order> Orders { get; private set; }
     }
 }
