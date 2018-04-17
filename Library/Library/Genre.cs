@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class Position
+    public class Genre
     {
         private string name;
-
-        public Position(){}
-        public Position(string position_name)
+        public Genre(string name)
         {
-            name = position_name;
+            this.name = name;
+            this.Books = new List<Book>();
         }
+        public int GenreID { get; set; }
         public string Name { get { return name; } set { name = value; } }
-        public int PositionID { get; set; }
+        public ICollection<Book> Books { get; private set; }
     }
 }

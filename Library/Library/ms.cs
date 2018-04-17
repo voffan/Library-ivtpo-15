@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Library
 {
@@ -26,10 +27,13 @@ namespace Library
         {
             fullname = fname + " " + sname + " " + mname;
         }
+        public int PersonID { get; set; }
         public string FirstName { get { return fname; } set { fname = value; SetFullName(); } }
         public string LastName { get { return sname; } set { sname = value; SetFullName(); } }
         public string MiddleName { get { return mname; } set { mname = value; SetFullName(); } }
         public string FullName { get { return fullname; } }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-mm-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Birthday { get { return birthdate; } set { birthdate = value; } }
     }
 }

@@ -16,8 +16,9 @@ namespace Library
         {
             name = publisher_name;
         }
-
+        public int PublisherID { get; set; }
         public string Name { get { return name; } set { name = value; } }
+        public int CityID { get; set; }
         public City City { get { return city; } set { city = value; } }
     }
 }

@@ -8,7 +8,7 @@ namespace Library
         IEnumerable<T> GetObjects();
         T GetObjectByID(int entityId);
         void InsertObject(T entity);
-        void DeleteObject(int enitityId);
+        void DeleteObject(int entityId);
         void UpdateObject(T entity);
         void Save();
     }
