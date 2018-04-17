@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 
 namespace Library
 {
@@ -35,5 +36,62 @@ namespace Library
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-mm-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Birthday { get { return birthdate; } set { birthdate = value; } }
+    }
+    public class PersonRepository : IRepository<Person>, IDisposable
+    {
+        private LibraryContext context;
+
+        private bool disposed = false;
+
+        public PersonRepository(LibraryContext context)
+        {
+            this.context = context;
+        }
+
+        public IEnumerable<Person> GetObjects()
+        {
+            return context.Persons.ToList();
+        }
+        public Person GetObjectByID(int entityId)
+        {
+            return context.Persons.Find(entityId);
+        }
+        public void InsertObject(Person entity)
+        {
+            context.Persons.Add(entity);
+        }
+        public void DeleteObject(int entityId)
+        {
+           Person u = context.Persons.Find(entityId);
+            context.Persons.Remove(u);
+        }
+        public void UpdateObject(Person entity)
+        {
+            context.Entry(entity).State = EntityState.Modified;
+        }
+
+        public void Save()
+        {
+            context.SaveChanges();
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
     }
 }
