@@ -1,7 +1,6 @@
-/Library/packages
 bin
 obj
-Library/packages
+/Library/packages
 /TechDoc/*.oob
 /TechDoc/*.rqb
 /TechDoc/*.sws
