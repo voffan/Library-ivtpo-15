@@ -9,14 +9,12 @@ namespace Library
 {
     public class Position
     {
-        private string name;
-
         public Position(){}
         public Position(string position_name)
         {
-            name = position_name;
+            Name = position_name;
         }
-        public string Name { get { return name; } set { name = value; } }
+        public string Name { get; set; }
         public int PositionID { get; set; }
     }
 

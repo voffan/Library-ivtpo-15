@@ -8,17 +8,15 @@ using System.Data.Entity;
 namespace Library
 {
     public class User {
-        private string name;
-        private string pwd;
         public User() { }
         public User(string user_name, string user_pwd)
         {
-            name = user_name;
-            pwd = user_pwd;
+            Login = user_name;
+            Password = user_pwd;
         }
         public int UserID { get; set; }
-        public string Login { get { return name; } }
-        public string Password { get { return pwd; } }
+        public string Login { get; set; }
+        public string Password { get; set; }
     }
 
     public class UserRepository:IRepository<User>, IDisposable

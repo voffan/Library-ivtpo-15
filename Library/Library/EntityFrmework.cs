@@ -27,6 +27,6 @@ namespace Library
         public DbSet<ReadingRoom> ReadingRooms { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Genre> Genres { get; set; }
-
+        public DbSet<Librarian> Librarians { get; set; }
     }
 }

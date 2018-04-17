@@ -9,9 +9,7 @@ namespace Library
 {
     public class Book
     {
-        private string name;
-
-        public string Name { get { return name; } set { name = value; } }
+        public string Name { get; set; }
         public int BookID { get; set; }
         public int Year { get; set; }
         public string ISBN { get; set; }
@@ -24,11 +22,15 @@ namespace Library
         public Author Author { get; set; }
 
         public Book() { }
-        public Book(string name, int count)
+        public Book(string name, int count, Author author, Publisher publisher)
         {
-            this.name = name;
+            Name = name;
+            Count = count;
+            Author = author;
+            Publisher = publisher;
         }
     }
+
     public class BookRepository : IRepository<Book>, IDisposable
     {
         private LibraryContext context;

@@ -10,14 +10,13 @@ namespace Library
 {
         public class Lending
         {
-            private string name;
             public Lending() { }
             public Lending(string name)
             {
-                this.name = name;
+                Name = name;
             }
             public int LendingID { get; set; }
-            public string Name { get { return name; } set { name = value; } }
+            public string Name { get; set; }
         }
     public class LendingRepository : IRepository<Lending>, IDisposable
     {

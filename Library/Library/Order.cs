@@ -10,27 +10,24 @@ namespace Library
 {
     public class Order
     {
-        private DateTime orderdate;
-        private DateTime? returndate;
-        private Boolean status;
         public Order () { }
         public Order (DateTime orderdate, Boolean status)
         {
-            this.orderdate = orderdate;
-            this.returndate = null;
-            this.status = status;
+            OrderDate = orderdate;
+            ReturnDate = null;
+            IsReturned = status;
         }
         public int OrderID { get; set; }
         
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-mm-yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime OrderDate { get { return orderdate; } set { orderdate = value; } }
+        public DateTime OrderDate { get; set; }
         
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-mm-yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime? ReturnDate { get { return returndate; } set { returndate = value; } }
+        public DateTime? ReturnDate { get; set; }
         
-        public Boolean IsReturned { get { return status; } set { status = value; } }
+        public Boolean IsReturned { get; set; }
 
         public int ReaderID { get; set; }
         public Reader Reader { get; set; }

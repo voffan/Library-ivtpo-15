@@ -9,14 +9,13 @@ namespace Library
 {
     public class Country
     {
-        private string name;
         public Country() { }
         public Country(string country_name) 
         {
-            name = country_name;
+            Name = country_name;
         }
         public int CountryID { get; set; }
-        public string Name { get { return name; } set { name = value; } }
+        public string Name { get; set; }
     }
     public class CountryRepository : IRepository<Country>, IDisposable
     {

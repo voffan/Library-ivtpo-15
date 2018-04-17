@@ -8,24 +8,20 @@ namespace Library
 {
     public class OrderBooks
     {
-        private Order order;
-        private Book book;
-        private int count;
-        private BookStatus bookStatus;
         public OrderBooks() { }
         public OrderBooks(Book book, int count, BookStatus status)
         {
-            this.book = book;
-            this.count = count;
-            this.bookStatus = status;
+            Book = book;
+            Count = count;
+            BookStatus = status;
         }
         public int OrderBooksID { get; set; }
         public int OrderID { get; set; }
-        public Order Order { get{ return order; } set{ order =value; } }
+        public Order Order { get; set; }
         public int BookID { get; set; }
-        public Book Book { get { return book; } set { book = value; } }
-        public int Count { get { return count; } set { count = value; } }
+        public Book Book { get; set; }
+        public int Count { get; set; }
         public int BookStatusID { get; set; }
-        public BookStatus BookStatus { get { return bookStatus; } set { bookStatus = value; } }
+        public BookStatus BookStatus { get; set; }
     }
 }

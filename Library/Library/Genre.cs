@@ -10,14 +10,13 @@ namespace Library
 {
     public class Genre
     {
-        private string name;
         public Genre(string name)
         {
-            this.name = name;
+            Name = name;
             this.Books = new List<Book>();
         }
         public int GenreID { get; set; }
-        public string Name { get { return name; } set { name = value; } }
+        public string Name { get; set; }
         public ICollection<Book> Books { get; private set; }
     }
     public class GenreRepository : IRepository<Genre>, IDisposable

@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201804171352194_second_mig.Designer.cs">
       <DependentUpon>201804171352194_second_mig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804171517404_third-mig.cs" />
+    <Compile Include="Migrations\201804171517404_third-mig.Designer.cs">
+      <DependentUpon>201804171517404_third-mig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ms.cs" />
     <Compile Include="Order.cs" />
@@ -117,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804171352194_second_mig.resx">
       <DependentUpon>201804171352194_second_mig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804171517404_third-mig.resx">
+      <DependentUpon>201804171517404_third-mig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

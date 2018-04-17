@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 
 namespace Library
 {
-    class Librarian: Person
+    public class Librarian: Person
     {
         public int LibrarianID { get; set; }
         public int PositionID { get; set; }
@@ -26,6 +27,63 @@ namespace Library
             User = user;
             Phone = phone;
             Address = address;
+        }
+    }
+    public class LibrarianRepository : IRepository<Librarian>, IDisposable
+    {
+        private LibraryContext context;
+
+        private bool disposed = false;
+
+        public LibrarianRepository(LibraryContext context)
+        {
+            this.context = context;
+        }
+
+        public IEnumerable<Librarian> GetObjects()
+        {
+            return context.Librarians.ToList();
+        }
+        public Librarian GetObjectByID(int entityId)
+        {
+            return context.Librarians.Find(entityId);
+        }
+        public void InsertObject(Librarian entity)
+        {
+            context.Librarians.Add(entity);
+        }
+        public void DeleteObject(int entityId)
+        {
+            Librarian u = context.Librarians.Find(entityId);
+            context.Librarians.Remove(u);
+        }
+        public void UpdateObject(Librarian entity)
+        {
+            context.Entry(entity).State = EntityState.Modified;
+        }
+
+        public void Save()
+        {
+            context.SaveChanges();
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

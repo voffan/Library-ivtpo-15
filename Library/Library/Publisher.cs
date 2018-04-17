@@ -8,17 +8,14 @@ namespace Library
 {
     public class Publisher
     {
-        private string name;
-        private City city;
-
         public Publisher() { }
         public Publisher(string publisher_name) 
         {
-            name = publisher_name;
+            Name = publisher_name;
         }
         public int PublisherID { get; set; }
-        public string Name { get { return name; } set { name = value; } }
+        public string Name { get; set; }
         public int CityID { get; set; }
-        public City City { get { return city; } set { city = value; } }
+        public City City { get; set; }
     }
 }

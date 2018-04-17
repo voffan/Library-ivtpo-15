@@ -9,14 +9,13 @@ namespace Library
 {
     public class BookStatus
     {
-        private string name;
         public BookStatus() { }
         public BookStatus(string status_name)
         {
-            name = status_name;
+            Name = status_name;
         }
         public int BookStatusID { get; set; }
-        public string Name { get { return name; } set { name = value; } }
+        public string Name { get; set; }
     }
 
     public class BookStatusRepository : IRepository<BookStatus>, IDisposable

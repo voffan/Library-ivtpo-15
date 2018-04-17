@@ -10,21 +10,18 @@ namespace Library
 {
     public class City
     {
-        [Required]
-        private string name;
-        [Required]
-        private Country country;
-
         public City() { }
         public City(string city_name, Country city_country)
         {
-            name = city_name;
-            country = city_country;
+            Name = city_name;
+            Country = city_country;
         }
         public int CityID { get; set; }
-        public string Name { get { return name; } set { name = value; } }
-        public Country Country { get { return country; } set { country = value; } }
+        [Required]
+        public string Name { get; set; }
         public int CountryID { get; set; }
+        [Required]
+        public Country Country { get; set; }
     }
     public class CityRepository : IRepository<City>, IDisposable
     {

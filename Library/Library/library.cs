@@ -9,19 +9,16 @@ namespace Library
 {
     public class library
     {
-        private string name;
-        private string address;
-        private string phone;
         public library(string name, string address, string phone)
         {
-            this.name = name;
-            this.address = address;
-            this.phone = phone;
+            Name = name;
+            Address = address;
+            Phone = phone;
         }
         public int LibraryID { get; set; }
-        public string Name { get { return name; } set { name = value; } }
-        public string Address { get { return address; } set { address = value; } }
-        public string Phone { get { return phone; } set { phone = value; } }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
     }
     public class libraryRepository : IRepository<library>, IDisposable
     {

@@ -8,14 +8,12 @@ namespace Library
 {
     public class ReadingRoom
     {
-        private string name;
-
         public ReadingRoom() { }
         public ReadingRoom(string room_name)
         {
-            name = room_name;
+            Name = room_name;
         }
         public int ReadingRoomID { get; set; }
-        public string Name { get { return name; } set { name = value; } }
+        public string Name { get; set; }
     }
 }
