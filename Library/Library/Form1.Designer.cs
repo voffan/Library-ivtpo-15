@@ -31,6 +31,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button34 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -61,11 +62,22 @@
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
+            // button34
+            // 
+            this.button34.Location = new System.Drawing.Point(196, 43);
+            this.button34.Name = "button34";
+            this.button34.Size = new System.Drawing.Size(75, 23);
+            this.button34.TabIndex = 3;
+            this.button34.Text = "Заказы";
+            this.button34.UseVisualStyleBackColor = true;
+            this.button34.Click += new System.EventHandler(this.button34_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.button34);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -80,6 +92,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button34;
     }
 }
 

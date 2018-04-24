@@ -63,6 +63,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,6 +85,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdersList.Designer.cs">
+      <DependentUpon>OrdersList.cs</DependentUpon>
     </Compile>
     <Compile Include="Genre.cs" />
     <Compile Include="IRepository.cs" />
@@ -115,6 +122,9 @@
     <Compile Include="User.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdersList.resx">
+      <DependentUpon>OrdersList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804170134009_Initial-Migration.resx">
       <DependentUpon>201804170134009_Initial-Migration.cs</DependentUpon>

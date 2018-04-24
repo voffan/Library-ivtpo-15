@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Library
 {
@@ -22,27 +23,27 @@ namespace Library
 
         private bool disposed = false;
 
-        public LendingRepository(LibraryContext context)
+        public ReadingRoomRepository(LibraryContext context)
         {
             this.context = context;
         }
 
         public IEnumerable<ReadingRoom> GetObjects()
         {
-            return context.ReadingRoom.ToList();
+            return context.ReadingRooms.ToList();
         }
         public ReadingRoom GetObjectByID(int entityId)
         {
-            return context.ReadingRoom.Find(entityId);
+            return context.ReadingRooms.Find(entityId);
         }
         public void InsertObject(ReadingRoom entity)
         {
-            context.Lendings.Add(entity);
+            context.ReadingRooms.Add(entity);
         }
         public void DeleteObject(int entityId)
         {
-            ReadingRoom u = context.Lendings.Find(entityId);
-            context.Lendings.Remove(u);
+            ReadingRoom u = context.ReadingRooms.Find(entityId);
+            context.ReadingRooms.Remove(u);
         }
         public void UpdateObject(ReadingRoom entity)
         {

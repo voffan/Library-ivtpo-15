@@ -45,5 +45,11 @@ namespace Library
                 richTextBox1.AppendText(user.UserID.ToString() + " " + user.Login + " " + user.Password);
             }
         }
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            OrdersList orderslist = new OrdersList();
+            orderslist.Show();
+        }
     }
 }
