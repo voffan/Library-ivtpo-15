@@ -31,10 +31,7 @@ namespace Library
 
         public int ReaderID { get; set; }
         public Reader Reader { get; set; }
-        public int? LendingID { get; set; }
-        public Lending Lending { get; set; }
-        public int? ReadingRoomID { get; set; }
-        public ReadingRoom ReadingRoom { get; set; }
+        public Boolean GotInReadingRoom { get; set; }
     }
 
     public class OrderRepository : IRepository<Order>, IDisposable

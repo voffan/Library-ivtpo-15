@@ -74,6 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrder.Designer.cs">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Author.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="BookStatus.cs" />
@@ -85,6 +91,10 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805150336011_Changed Order.cs" />
+    <Compile Include="Migrations\201805150336011_Changed Order.Designer.cs">
+      <DependentUpon>201805150336011_Changed Order.cs</DependentUpon>
     </Compile>
     <Compile Include="OrdersList.cs">
       <SubType>Form</SubType>
@@ -120,8 +130,14 @@
     <Compile Include="Reader.cs" />
     <Compile Include="ReadingRoom.cs" />
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="AddOrder.resx">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805150336011_Changed Order.resx">
+      <DependentUpon>201805150336011_Changed Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrdersList.resx">
       <DependentUpon>OrdersList.cs</DependentUpon>
